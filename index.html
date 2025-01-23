@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Trimmer</title>
+    <style>
+        textarea { width: 100%; margin: 10px 0; font-family: monospace; }
+        button { padding: 8px 16px; }
+    </style>
+</head>
+<body>
+    <h1>Text Trimmer</h1>
+    <textarea id="input" rows="10"></textarea>
+    <button onclick="trimTo100Lines()">Trim to 100 Lines</button>
+    <h3>Trimmed Result:</h3>
+    <textarea id="output" rows="10" readonly></textarea>
+
+    <script>
+        function trimTo100Lines() {
+            const input = document.getElementById('input').value;
+            const lines = input.split('\n');
+            const trimmed = lines.slice(-100).join('\n');
+            document.getElementById('output').value = trimmed;
+        }
+    </script>
+</body>
+</html>
