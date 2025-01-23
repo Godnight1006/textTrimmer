@@ -25,6 +25,10 @@ def monitor_clipboard():
                     pass
 
 def trim_clipboard(text):
+    # Skip trimming if the text contains the git repository summary marker
+    if "Here are summaries of some files present in my git repository" in text:
+        return
+        
     lines = text.split('\n')
     if len(lines) > 100:
         trimmed = '\n'.join(lines[-100:])
